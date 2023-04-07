@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.github.raziu75.lighttrekking.viewmodel.StuffViewModel
+import com.github.raziu75.lighttrekking.viewModel.StuffViewModel
 
 @Composable
 fun BodyStuff(modifier: Modifier, vm: StuffViewModel = viewModel()) {
@@ -31,7 +31,7 @@ fun BodyStuff(modifier: Modifier, vm: StuffViewModel = viewModel()) {
                 onValueChange = { newValue -> vm.onStuffNameInputChange(newValue)},
                 label = { Text(text = "Nouveau Stuff") },
                 trailingIcon = {
-                    IconButton(onClick = { vm.OnNewStuffClick() }) {
+                    IconButton(onClick = { vm.onNewStuffClick() }) {
                         Icon(imageVector = Icons.Default.Add, contentDescription = null)
                     }
                 }

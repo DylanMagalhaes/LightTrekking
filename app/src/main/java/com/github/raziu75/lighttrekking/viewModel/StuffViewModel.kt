@@ -1,4 +1,4 @@
-package com.github.raziu75.lighttrekking.viewmodel
+package com.github.raziu75.lighttrekking.viewModel
 
 import androidx.lifecycle.ViewModel
 import com.github.raziu75.lighttrekking.model.Stuff
@@ -16,7 +16,7 @@ class StuffViewModel : ViewModel() {
         stuffUiState.update { it.copy(textFieldValue = value) }
     }
 
-    fun OnNewStuffClick() {
+    fun onNewStuffClick() {
         if (stuffUiState.value.textFieldValue != "") {
             val newStuff = Stuff(stuffName = stuffUiState.value.textFieldValue)
             stuffUiState.update { it.copy(items = (it.items + newStuff) as MutableList<Stuff>, textFieldValue = "") }
@@ -24,9 +24,11 @@ class StuffViewModel : ViewModel() {
     }
 
     fun onDeleteStuffClick(stuff: Stuff) {
-        var list = mutableListOf<Stuff>()
-        list.remove(stuff)
-        stuffUiState.update { it.copy(items = list) }
+        stuffUiState.update { currentState ->
+            val updatedList = currentState.items.toMutableList()
+            updatedList.remove(stuff)
+            currentState.copy(items = updatedList)
+        }
     }
 
 }

@@ -34,7 +34,7 @@ fun StuffItem(
                 text = stuff.stuffName
             )
             Spacer(modifier = Modifier.weight(1.0F))
-            IconButton(onClick = { onDelete }) {
+            IconButton(onClick = { onDelete() }) {
                 Icon(
                     imageVector = Icons.Default.Delete,
                     contentDescription = null,
