@@ -14,8 +14,19 @@ class StuffListViewModel : ViewModel() {
 
     fun addStuff() {
         val newStuff = Stuff()
-        stuffUiState.update { it.copy(items = (it.items + newStuff) as MutableList<Stuff>, textFieldValue = "") }
+        stuffUiState.update { it.copy(items = (it.items + newStuff) as MutableList<Stuff>) }
     }
 
+    fun deleteStuff(stuff: Stuff) {
+        var list = convertToMutable()
+        list.remove(stuff)
+        stuffUiState.update { it.copy(items = list) }
 
+    }
+
+    fun convertToMutable(): MutableList<Stuff> {
+        var list: MutableList<Stuff> = mutableListOf()
+        list += stuffUiState.value.items
+        return  list
+    }
 }

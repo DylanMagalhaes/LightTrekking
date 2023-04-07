@@ -29,8 +29,8 @@ fun HomePage(vm: StuffListViewModel = viewModel()) {
         horizontalAlignment = Alignment.Start
     ) {
         LazyColumn(modifier = Modifier) {
-            items(state.items) { toDo ->
-                StuffItem(stuff = Stuff())
+            items(state.items) { stuff ->
+                StuffItem(stuff = Stuff(), vm = StuffListViewModel(), onDelet = { vm.deleteStuff(stuff = stuff) })
             }
         }
         IconButton(onClick = { vm.addStuff() }) {

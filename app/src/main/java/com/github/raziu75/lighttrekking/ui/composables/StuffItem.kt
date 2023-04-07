@@ -9,17 +9,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.github.raziu75.lighttrekking.model.Stuff
+import com.github.raziu75.lighttrekking.viewModel.StuffListViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun StuffItem(stuff: Stuff) {
+fun StuffItem(stuff: Stuff, vm: StuffListViewModel, onDelet: () -> Unit) {
 
     var stuffName by remember { mutableStateOf("Nouveau stuff") }
     Card(
         modifier = Modifier.fillMaxWidth().padding(8.dp),
         shape = MaterialTheme.shapes.medium,
         elevation = 200.dp,
-        onClick = { }
+        onClick = { vm.deleteStuff(stuff = stuff) }
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -29,7 +30,7 @@ fun StuffItem(stuff: Stuff) {
             Text(
                 modifier = Modifier.padding(8.dp, 0.dp,0.dp,0.dp),
                 text = stuffName)
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(onClick = {  onDelet()}) {
                 Icon(imageVector = Icons.Default.Delete, contentDescription = null)
             }
         }
