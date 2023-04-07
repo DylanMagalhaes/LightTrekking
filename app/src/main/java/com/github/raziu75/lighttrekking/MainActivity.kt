@@ -6,11 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.github.raziu75.lighttrekking.ui.composables.HomePage
+import com.github.raziu75.lighttrekking.ui.composables.BodyStuff
 import com.github.raziu75.lighttrekking.ui.theme.LightTrekkingTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    HomePage()
+                    BodyStuff(Modifier)
                 }
             }
         }

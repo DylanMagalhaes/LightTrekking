@@ -9,29 +9,36 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.github.raziu75.lighttrekking.model.Stuff
-import com.github.raziu75.lighttrekking.viewModel.StuffListViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun StuffItem(stuff: Stuff, vm: StuffListViewModel, onDelet: () -> Unit) {
-
-    var stuffName by remember { mutableStateOf("Nouveau stuff") }
+fun StuffItem(
+    stuff: Stuff,
+    onDelete: () -> Unit,
+) {
     Card(
-        modifier = Modifier.fillMaxWidth().padding(8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
         shape = MaterialTheme.shapes.medium,
         elevation = 200.dp,
-        onClick = { vm.deleteStuff(stuff = stuff) }
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
+        onClick = { TODO() }
+    ){
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .height(50.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                modifier = Modifier.padding(8.dp, 0.dp,0.dp,0.dp),
-                text = stuffName)
-            IconButton(onClick = {  onDelet()}) {
-                Icon(imageVector = Icons.Default.Delete, contentDescription = null)
+                modifier = Modifier.padding(8.dp,0.dp,0.dp,0.dp),
+                text = stuff.stuffName
+            )
+            Spacer(modifier = Modifier.weight(1.0F))
+            IconButton(onClick = { onDelete }) {
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = null,
+                    tint = MaterialTheme.colors.error)
             }
         }
     }
