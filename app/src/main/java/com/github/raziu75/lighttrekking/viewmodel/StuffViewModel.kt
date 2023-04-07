@@ -1,4 +1,4 @@
-package com.github.raziu75.lighttrekking.viewModel
+package com.github.raziu75.lighttrekking.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.github.raziu75.lighttrekking.model.Stuff
@@ -12,8 +12,8 @@ class StuffViewModel : ViewModel() {
 
     var uiState: StateFlow<StuffState> = stuffUiState
 
-    fun giveName(newValue: String) {
-        stuffUiState.update { it.copy(textFieldValue = newValue) }
+    fun onStuffNameInputChange(value: String) {
+        stuffUiState.update { it.copy(textFieldValue = value) }
     }
 
     fun OnNewStuffClick() {
