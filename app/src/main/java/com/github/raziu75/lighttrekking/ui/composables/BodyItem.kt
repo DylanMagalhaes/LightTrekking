@@ -20,7 +20,7 @@ fun BodyItem(vm: ItemViewModel) {
     val itemState by vm.uiState.collectAsState()
     var expanded by remember { mutableStateOf(false) }
     var selectedIndex by remember { mutableStateOf(0) }
-    val items = listOf("nourriture", "vetement", "accessoire", "autre")
+
 
     Column(modifier = Modifier.fillMaxSize()) {
         Divider(
@@ -43,7 +43,7 @@ fun BodyItem(vm: ItemViewModel) {
             ) {
                 Row(){
                     Text(
-                        text = items[selectedIndex],
+                        text = itemState.CategoryName[selectedIndex],
                         modifier = Modifier.padding(8.dp)
                     )
                     Icon(
@@ -59,7 +59,7 @@ fun BodyItem(vm: ItemViewModel) {
                     expanded = expanded,
                     onDismissRequest = { expanded = false },
                 ) {
-                    items.forEachIndexed { index, text ->
+                    itemState.CategoryName.forEachIndexed { index, text ->
                         if (index != selectedIndex) {
                             DropdownMenuItem(
                                 onClick = {
@@ -88,5 +88,6 @@ fun BodyItem(vm: ItemViewModel) {
         Divider(
             modifier = Modifier.fillMaxWidth(), color = Color.Black
         )
+        itemView()
     }
 }

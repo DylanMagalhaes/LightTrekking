@@ -16,6 +16,7 @@ class ItemViewModel : ViewModel() {
     private val itemUiState = MutableStateFlow(ItemState())
     var uiState: StateFlow<ItemState> = itemUiState
 
+
    //// fun onCategoryNameInputChange(value: List<String>) {
    ////     itemUiState.update { it.copy(categoryName = value) }
    //// }

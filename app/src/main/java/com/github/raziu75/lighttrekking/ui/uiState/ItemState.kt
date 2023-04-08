@@ -8,4 +8,5 @@ data class ItemState(
     val description: String= "",
     val weight: Double? = null,
     val quantity: Int? = null,
+    val CategoryName: List<String> = listOf("nourriture", "vetement", "accessoire", "autre")
 )

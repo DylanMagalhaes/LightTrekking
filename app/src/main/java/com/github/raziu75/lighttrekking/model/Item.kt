@@ -5,5 +5,6 @@ data class Item(
     val description: String,
     val weight: Double?,
     val quantity: Int?,
-    val items: List<String>
+    val CategoryName: List<String> = listOf("nourriture", "vetement", "accessoire", "autre")
+
 )
