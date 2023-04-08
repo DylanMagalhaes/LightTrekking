@@ -1,5 +1,6 @@
 package com.github.raziu75.lighttrekking.model
 
-class Stuff(
-    var stuffName: String
+data class Stuff(
+    var stuffName: String,
+
 )

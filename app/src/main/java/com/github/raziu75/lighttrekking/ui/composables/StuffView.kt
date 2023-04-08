@@ -1,5 +1,6 @@
 package com.github.raziu75.lighttrekking.ui.composables
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -12,12 +13,14 @@ import com.github.raziu75.lighttrekking.model.Stuff
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun StuffItem(
+fun StuffView(
     stuff: Stuff,
     onDelete: () -> Unit,
+    onClick: (Stuff) -> Unit
 ) {
     Card(
         modifier = Modifier
+            .clickable { onClick(stuff)}
             .fillMaxWidth()
             .padding(8.dp),
         shape = MaterialTheme.shapes.medium,

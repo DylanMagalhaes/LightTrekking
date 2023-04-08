@@ -19,15 +19,15 @@ class StuffViewModel : ViewModel() {
     fun onNewStuffClick() {
         if (stuffUiState.value.title != "") {
             val newStuff = Stuff(stuffName = stuffUiState.value.title)
-            stuffUiState.update { it.copy(items = it.items + newStuff, title = "") }
+            stuffUiState.update { it.copy(stuffList = it.stuffList + newStuff, title = "") }
         }
     }
 
     fun onDeleteStuffClick(stuff: Stuff) {
         stuffUiState.update { currentState ->
-            val updatedList = currentState.items.toMutableList()
+            val updatedList = currentState.stuffList.toMutableList()
             updatedList.remove(stuff)
-            currentState.copy(items = updatedList)
+            currentState.copy(stuffList = updatedList)
         }
     }
 

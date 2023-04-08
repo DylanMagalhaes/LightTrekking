@@ -9,8 +9,10 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.raziu75.lighttrekking.ui.composables.BodyItem
 import com.github.raziu75.lighttrekking.ui.composables.BodyStuff
 import com.github.raziu75.lighttrekking.ui.theme.LightTrekkingTheme
+import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,12 +24,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    BodyStuff(Modifier)
+                    BodyItem(vm = ItemViewModel())
                 }
             }
         }
     }
 }
+
 
 
 @Preview(showBackground = true)
