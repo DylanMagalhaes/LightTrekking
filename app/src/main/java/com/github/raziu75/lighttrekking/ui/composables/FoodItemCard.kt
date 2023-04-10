@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.github.raziu75.lighttrekking.model.CategoryItem
 
 @Composable
 fun FoodItemCard() {
@@ -24,7 +25,7 @@ fun FoodItemCard() {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxSize()
         ) {
-            Text(text = "Nourritures")
+            Text(text = CategoryItem.FOOD.toString())
             Text(text = "kilos")
         }
     }

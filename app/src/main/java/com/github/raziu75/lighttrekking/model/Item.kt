@@ -5,7 +5,7 @@ data class Item(
     val description: String,
     val weight: Double,
     val quantity: Int,
-    val categoryName: List<String> = listOf("nourriture", "vetement", "accessoire", "autre"),
+    val categoryName: String,
     val unitWeight: List<String> = listOf("kg", "g")
 ){
     fun weightAddition(weight: Double): Double{
