@@ -1,11 +1,8 @@
 package com.github.raziu75.lighttrekking.vm
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.github.raziu75.lighttrekking.model.Item
+import com.github.raziu75.lighttrekking.model.Stuff
 import com.github.raziu75.lighttrekking.ui.uiState.ItemState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,11 +12,6 @@ class ItemViewModel : ViewModel() {
 
     private val itemUiState = MutableStateFlow(ItemState())
     var uiState: StateFlow<ItemState> = itemUiState
-
-
-   //// fun onCategoryNameInputChange(value: List<String>) {
-   ////     itemUiState.update { it.copy(categoryName = value) }
-   //// }
 
     fun onItemNameInputChange(value: String) {
         itemUiState.update { it.copy(itemName = value) }
@@ -37,9 +29,23 @@ class ItemViewModel : ViewModel() {
         itemUiState.update { it.copy(quantity = value) }
     }
 
-   // fun onNewItemClick() {
-   //         val newItem = Item("", "", "", null, null)
-   //         itemUiState.update { it.copy(itemList = it.itemList + newItem) }
-//
-   // }
+    fun onAddItemClick() {
+        if (itemUiState.value.itemName != "" && itemUiState.value.quantity != 0 && itemUiState.value.weight != 0.0) {
+            val newStuff = Item(
+                itemName = itemUiState.value.itemName,
+                description = itemUiState.value.description,
+                weight = itemUiState.value.weight,
+                quantity = itemUiState.value.quantity
+            )
+            itemUiState.update { it.copy(itemList = it.itemList + newStuff) }
+        }
+    }
+
+    fun onDeleteItemClick(item: Item) {
+        itemUiState.update { currentState ->
+            val updatedList = currentState.itemList.toMutableList()
+            updatedList.remove(item)
+            currentState.copy(itemList = updatedList)
+        }
+    }
 }
