@@ -39,6 +39,7 @@ class ItemViewModel : ViewModel() {
             )
             itemUiState.update { it.copy(itemList = it.itemList + newStuff) }
         }
+        getTotalWeight()
     }
 
     fun onDeleteItemClick(item: Item) {
@@ -47,5 +48,12 @@ class ItemViewModel : ViewModel() {
             updatedList.remove(item)
             currentState.copy(itemList = updatedList)
         }
+        getTotalWeight()
     }
+
+    fun getTotalWeight() {
+        val totalWeight = itemUiState.value.itemList.sumOf { it.weight * it.quantity }
+        itemUiState.update { it.copy(totalWeight = totalWeight) }
+    }
+
 }

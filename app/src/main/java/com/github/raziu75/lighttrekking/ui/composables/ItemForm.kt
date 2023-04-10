@@ -109,7 +109,9 @@ fun ItemForm(vm: ItemViewModel = viewModel()) {
                 placeholder = { Text(text = "Quantité") }
             )
         }
-        Button(onClick = {vm.onAddItemClick()}) {
+        Button(onClick = {
+            vm.onAddItemClick()
+        }) {
             Icon(imageVector = Icons.Default.Add, contentDescription = null)
             Text(text = "Ajouter a la liste",Modifier.padding(start = 10.dp))
         }

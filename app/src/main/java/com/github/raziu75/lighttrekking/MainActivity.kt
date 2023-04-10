@@ -9,10 +9,11 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.raziu75.lighttrekking.model.Item
 import com.github.raziu75.lighttrekking.ui.composables.ClothesItemDetails
 import com.github.raziu75.lighttrekking.ui.composables.ItemForm
 import com.github.raziu75.lighttrekking.ui.theme.LightTrekkingTheme
-
+import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ClothesItemDetails()
+                    ClothesItemDetails(vm = ItemViewModel())
                 }
             }
         }

@@ -1,6 +1,5 @@
 package com.github.raziu75.lighttrekking.ui.composables
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -37,14 +36,14 @@ fun ItemView(
             )
             Text(
                 modifier = Modifier.padding(8.dp,0.dp,0.dp,0.dp),
-                text = "${ item.weight.toString() } kg"
+                text = "${ item.weight.toString() } Kg"
             )
             Text(
                 modifier = Modifier.padding(8.dp,0.dp,0.dp,0.dp),
                 text = "X ${item.quantity.toString()}"
             )
             Spacer(modifier = Modifier.weight(1.0F))
-            IconButton(onClick = { onDelete() }) {
+            IconButton(onClick = { onDelete()  }) {
                 Icon(
                     imageVector = Icons.Default.Delete,
                     contentDescription = null,
