@@ -9,6 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.github.raziu75.lighttrekking.ui.uiState.ItemState
 
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
@@ -24,8 +25,7 @@ fun ListItemView(vm: ItemViewModel = viewModel()) {
             items(itemState.itemList) { item ->
                 ItemView(
                     item = item,
-                    onDelete = {vm.onDeleteItemClick(item)}
-
+                    onDelete = {vm.onDeleteItemClick(item)},
                 )
             }
         }

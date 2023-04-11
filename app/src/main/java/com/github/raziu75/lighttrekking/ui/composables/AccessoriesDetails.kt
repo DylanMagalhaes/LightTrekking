@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.github.raziu75.lighttrekking.ui.uiState.ItemState
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @Composable

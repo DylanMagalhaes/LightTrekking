@@ -9,12 +9,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.github.raziu75.lighttrekking.model.Item
+import com.github.raziu75.lighttrekking.ui.uiState.ItemState
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ItemView(
     item: Item,
     onDelete: () -> Unit,
+
 ) {
     Card(
         modifier = Modifier
