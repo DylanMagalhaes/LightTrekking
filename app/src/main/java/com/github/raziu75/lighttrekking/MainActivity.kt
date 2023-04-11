@@ -28,32 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
-                    val navController = rememberNavController()
-                    NavHost(
-                        navController = navController,
-                        startDestination = "home"
-                    )
-                    {
-                        composable("home"){
-                            BodyStuff(modifier = Modifier, navController = navController)
-                        }
-                        composable("mainStuff"){
-                            MainStuffView(navController = navController)
-                        }
-                        composable("clothesDetails"){
-                            ClothesItemDetails(vm = ItemViewModel(), navController = navController)
-                        }
-                        composable("foodDetails"){
-                            FoodDetails(vm = ItemViewModel(), navController = navController)
-                        }
-                        composable("accessoriesDetails"){
-                            AccessoriesDetails(vm = ItemViewModel(), navController = navController)
-                        }
-                        composable("otherDetails"){
-                            OtherDetails(vm = ItemViewModel(), navController = navController)
-                        }
-                    }
+                    Home()
                 }
             }
         }

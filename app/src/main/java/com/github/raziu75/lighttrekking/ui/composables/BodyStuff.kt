@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.github.raziu75.lighttrekking.model.Screens
 import com.github.raziu75.lighttrekking.vm.StuffViewModel
 
 @Composable
@@ -48,7 +49,7 @@ fun BodyStuff(modifier: Modifier, vm: StuffViewModel = viewModel(), navControlle
                     StuffView(
                         stuff = stuff,
                         onDelete = { vm.onDeleteStuffClick(stuff) },
-                        onClick = { navController.navigate("mainStuff") }
+                        onClick = { navController.navigate(Screens.HOMESTUFF.name) }
                     )
                 }
             }

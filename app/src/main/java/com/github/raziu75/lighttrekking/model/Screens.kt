@@ -1,8 +1,8 @@
 package com.github.raziu75.lighttrekking.model
 
-enum class ScreensName(val title: String) {
+enum class Screens(val title: String) {
     STUFF(title = "Stuff"),
-    HOMESTUFF(title = "Choix de catégorie"),
+    HOMESTUFF(title = "Categorie"),
     CLOTHE(title = "Vetement"),
     FOOD(title = "Nourriture"),
     ACCESSORY(title = "Accessoire"),

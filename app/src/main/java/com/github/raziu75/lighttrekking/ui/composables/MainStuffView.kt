@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.github.raziu75.lighttrekking.model.Screens
 
 @Composable
 fun MainStuffView(navController: NavController) {
@@ -26,8 +27,8 @@ fun MainStuffView(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            ClothesItemCard { navController.navigate("clothesDetails") }
-            AccessoriesItemCard { navController.navigate("accessoriesDetails") }
+            ClothesItemCard { navController.navigate(Screens.CLOTHE.name) }
+            AccessoriesItemCard { navController.navigate(Screens.ACCESSORY.name) }
         }
         Spacer(modifier = Modifier.height(70.dp))
         Row(
@@ -35,8 +36,8 @@ fun MainStuffView(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            FoodItemCard { navController.navigate("foodDetails") }
-            OtherItemCard { navController.navigate("otherDetails") }
+            FoodItemCard { navController.navigate(Screens.FOOD.name) }
+            OtherItemCard { navController.navigate(Screens.OTHER.name) }
         }
     }
 }

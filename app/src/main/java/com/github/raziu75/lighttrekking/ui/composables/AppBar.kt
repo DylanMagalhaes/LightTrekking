@@ -15,11 +15,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.github.raziu75.lighttrekking.R
-import com.github.raziu75.lighttrekking.model.ScreensName
+import com.github.raziu75.lighttrekking.model.Screens
 
 @Composable
 fun AppBar(
-    screens: ScreensName,
+    screens: Screens,
     canGoBack: Boolean,
     up: () -> Unit
 ) {
