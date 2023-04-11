@@ -11,11 +11,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.github.raziu75.lighttrekking.vm.StuffViewModel
 
 @Composable
-fun BodyStuff(modifier: Modifier, vm: StuffViewModel = viewModel()) {
+fun BodyStuff(modifier: Modifier, vm: StuffViewModel = viewModel(), navController: NavController) {
     val stuffState by vm.uiState.collectAsState()
+
 
     Column(
         modifier = Modifier
@@ -45,7 +48,7 @@ fun BodyStuff(modifier: Modifier, vm: StuffViewModel = viewModel()) {
                     StuffView(
                         stuff = stuff,
                         onDelete = { vm.onDeleteStuffClick(stuff) },
-                        onClick = {  }
+                        onClick = { navController.navigate("mainStuff") }
                     )
                 }
             }

@@ -2,13 +2,16 @@ package com.github.raziu75.lighttrekking.ui.composables
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ClothesItemCard() {
     Card(
@@ -17,7 +20,8 @@ fun ClothesItemCard() {
             .width(150.dp),
         elevation = 20.dp,
         shape = MaterialTheme.shapes.medium,
-        backgroundColor = MaterialTheme.colors.primary
+        backgroundColor = MaterialTheme.colors.primary,
+        onClick = {}
     ) {
         Column(
             verticalArrangement = Arrangement.Center,

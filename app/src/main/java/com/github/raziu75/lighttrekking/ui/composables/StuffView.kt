@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.github.raziu75.lighttrekking.model.Stuff
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -16,7 +17,7 @@ import com.github.raziu75.lighttrekking.model.Stuff
 fun StuffView(
     stuff: Stuff,
     onDelete: () -> Unit,
-    onClick: (Stuff) -> Unit
+    onClick: (Stuff) -> Unit,
 ) {
     Card(
         modifier = Modifier
@@ -25,7 +26,7 @@ fun StuffView(
             .padding(8.dp),
         shape = MaterialTheme.shapes.medium,
         elevation = 200.dp,
-        onClick = { TODO() }
+        onClick = { onClick(stuff) }
     ){
         Row(modifier = Modifier
             .fillMaxWidth()

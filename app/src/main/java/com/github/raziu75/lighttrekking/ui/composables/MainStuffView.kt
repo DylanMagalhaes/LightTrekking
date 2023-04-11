@@ -5,12 +5,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
 fun MainStuffView() {
     Column(
         modifier = Modifier
-            .fillMaxSize(0.40f)
             .padding(8.dp)
     ) {
         Row(
