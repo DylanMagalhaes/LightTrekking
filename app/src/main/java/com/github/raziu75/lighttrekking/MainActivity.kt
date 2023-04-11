@@ -39,10 +39,19 @@ class MainActivity : ComponentActivity() {
                             BodyStuff(modifier = Modifier, navController = navController)
                         }
                         composable("mainStuff"){
-                            MainStuffView()
+                            MainStuffView(navController = navController)
                         }
                         composable("clothesDetails"){
-                            ClothesItemDetails(vm = ItemViewModel())
+                            ClothesItemDetails(vm = ItemViewModel(), navController = navController)
+                        }
+                        composable("foodDetails"){
+                            ClothesItemDetails(vm = ItemViewModel(), navController = navController)
+                        }
+                        composable("accessoriesDetails"){
+                            ClothesItemDetails(vm = ItemViewModel(), navController = navController)
+                        }
+                        composable("otherDetails"){
+                            ClothesItemDetails(vm = ItemViewModel(), navController = navController)
                         }
                     }
                 }
@@ -56,6 +65,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     LightTrekkingTheme {
-        MainStuffView()
+
     }
 }

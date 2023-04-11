@@ -9,11 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ClothesItemCard() {
+fun ClothesItemCard(onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .height(150.dp)
@@ -21,7 +20,7 @@ fun ClothesItemCard() {
         elevation = 20.dp,
         shape = MaterialTheme.shapes.medium,
         backgroundColor = MaterialTheme.colors.primary,
-        onClick = {}
+        onClick = {onClick()}
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
