@@ -17,17 +17,18 @@ import com.github.raziu75.lighttrekking.vm.ItemViewModel
 @Composable
 fun AccessoriesDetails(vm: ItemViewModel, navController: NavController) {
     val itemState = vm.uiState.collectAsState()
+    val selectedCategory = "accessories"
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        ItemForm(vm, "accessories")
+        ItemForm(vm, selectedCategory)
         Spacer(modifier = Modifier.height(10.dp))
         Text(
-            text = "Poid Total: ${itemState.value.totalWeight} kg",
+            text = "Poids total: ${itemState.value.categoryTotalWeight[selectedCategory] ?: 0.0} kg",
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(10.dp))
-        ListItemView(vm, selectedCategory = "accessories")
+        ListItemView(vm, selectedCategory = selectedCategory)
     }
 }

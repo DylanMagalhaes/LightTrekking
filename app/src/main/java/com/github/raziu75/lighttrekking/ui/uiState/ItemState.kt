@@ -11,5 +11,6 @@ data class ItemState(
     val unitWeight: List<String> = listOf("kg", "g"),
     val itemList: List<Item> = listOf(),
     var totalWeight: Double = 0.0,
-    val categoryName: String = ""
+    val categoryName: String = "",
+    val categoryTotalWeight: Map<String, Double> = emptyMap()
 )
