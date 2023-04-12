@@ -29,18 +29,20 @@ class ItemViewModel : ViewModel() {
         itemUiState.update { it.copy(quantity = value) }
     }
 
-    fun onAddItemClick() {
+    fun onAddItemClick(category: String) {
         if (itemUiState.value.itemName != "" && itemUiState.value.quantity != "" && itemUiState.value.weight != "") {
             val newStuff = Item(
                 itemName = itemUiState.value.itemName,
                 description = itemUiState.value.description,
                 weight = itemUiState.value.weight,
-                quantity = itemUiState.value.quantity
+                quantity = itemUiState.value.quantity,
+                categoryName = category
             )
             itemUiState.update { it.copy(itemList = it.itemList + newStuff) }
         }
         getTotalWeight()
     }
+
 
     fun onDeleteItemClick(item: Item) {
         itemUiState.update { currentState ->

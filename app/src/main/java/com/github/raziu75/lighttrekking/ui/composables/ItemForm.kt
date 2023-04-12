@@ -16,7 +16,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @Composable
-fun ItemForm(vm: ItemViewModel = viewModel()) {
+fun ItemForm(
+    vm: ItemViewModel = viewModel(),
+    category: String
+) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
     val screen4 = screenWidth / 4
     val screen2 = screenWidth / 2
@@ -111,10 +114,10 @@ fun ItemForm(vm: ItemViewModel = viewModel()) {
             )
         }
         Button(onClick = {
-            vm.onAddItemClick()
+            vm.onAddItemClick(category = category)
         }) {
             Icon(imageVector = Icons.Default.Add, contentDescription = null)
-            Text(text = "Ajouter a la liste",Modifier.padding(start = 10.dp))
+            Text(text = "Ajouter a la liste", Modifier.padding(start = 10.dp))
         }
     }
 }

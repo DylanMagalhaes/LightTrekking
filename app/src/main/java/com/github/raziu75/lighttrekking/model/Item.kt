@@ -5,7 +5,7 @@ data class Item(
     val description: String,
     val weight: String,
     val quantity: String,
-    //val categoryName: String,
+    val categoryName: String,
     val unitWeight: List<String> = listOf("kg", "g")
 )
 

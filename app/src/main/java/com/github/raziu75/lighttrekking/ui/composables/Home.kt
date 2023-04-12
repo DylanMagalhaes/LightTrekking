@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.Key.Companion.Home
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -14,7 +15,7 @@ import com.github.raziu75.lighttrekking.model.Screens
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @Composable
-fun Home() {
+fun Home(vm: ItemViewModel = viewModel()) {
     val navController = rememberNavController()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = Screens.valueOf(backStackEntry?.destination?.route?: Screens.STUFF.name)
@@ -39,16 +40,16 @@ fun Home() {
                     MainStuffView(navController = navController)
                 }
                 composable(Screens.CLOTHE.name){
-                    ClothesItemDetails(vm = ItemViewModel(), navController = navController)
+                    ClothesItemDetails(vm = vm, navController = navController)
                 }
                 composable(Screens.FOOD.name){
-                    FoodDetails(vm = ItemViewModel(), navController = navController)
+                    FoodDetails(vm = vm, navController = navController)
                 }
                 composable(Screens.ACCESSORY.name){
-                    AccessoriesDetails(vm = ItemViewModel(), navController = navController)
+                    AccessoriesDetails(vm = vm, navController = navController)
                 }
                 composable(Screens.OTHER.name){
-                    OtherDetails(vm = ItemViewModel(), navController = navController)
+                    OtherDetails(vm = vm, navController = navController)
                 }
             }
         }

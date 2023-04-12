@@ -21,13 +21,13 @@ fun FoodDetails(vm: ItemViewModel, navController: NavController) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        ItemForm(vm)
+        ItemForm(vm, "food")
         Spacer(modifier = Modifier.height(10.dp))
         Text(
             text = "Poid Total: ${itemState.value.totalWeight} kg",
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(10.dp))
-        ListItemView(vm)
+        ListItemView(vm, "food")
     }
 }

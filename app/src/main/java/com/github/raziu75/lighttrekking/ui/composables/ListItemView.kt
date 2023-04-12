@@ -9,23 +9,24 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.github.raziu75.lighttrekking.ui.uiState.ItemState
-
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @Composable
-fun ListItemView(vm: ItemViewModel = viewModel()) {
-
+fun ListItemView(
+    vm: ItemViewModel = viewModel(),
+    selectedCategory: String
+) {
     val itemState by vm.uiState.collectAsState()
 
-    if (itemState.itemList.isEmpty()) {
+    val filteredItems = itemState.itemList.filter { it.categoryName == selectedCategory }
+    if (filteredItems.isEmpty()) {
         Text(text = "La liste est vide ")
     } else {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(itemState.itemList) { item ->
+            items(filteredItems) { item ->
                 ItemView(
                     item = item,
-                    onDelete = {vm.onDeleteItemClick(item)},
+                    onDelete = { vm.onDeleteItemClick(item) },
                 )
             }
         }
