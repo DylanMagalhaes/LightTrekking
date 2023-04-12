@@ -21,16 +21,16 @@ class ItemViewModel : ViewModel() {
         itemUiState.update { it.copy(description = value) }
     }
 
-    fun onWeightInputChange(value: Double) {
+    fun onWeightInputChange(value: String) {
         itemUiState.update { it.copy(weight = value) }
     }
 
-    fun onQuantityInputChange(value: Int) {
+    fun onQuantityInputChange(value: String) {
         itemUiState.update { it.copy(quantity = value) }
     }
 
     fun onAddItemClick() {
-        if (itemUiState.value.itemName != "" && itemUiState.value.quantity != 0 && itemUiState.value.weight != 0.0) {
+        if (itemUiState.value.itemName != "" && itemUiState.value.quantity != "" && itemUiState.value.weight != "") {
             val newStuff = Item(
                 itemName = itemUiState.value.itemName,
                 description = itemUiState.value.description,
@@ -52,7 +52,7 @@ class ItemViewModel : ViewModel() {
     }
 
     fun getTotalWeight() {
-        val totalWeight = itemUiState.value.itemList.sumOf { it.weight * it.quantity }
+        val totalWeight = itemUiState.value.itemList .sumOf { it.weight.toDouble() * it.quantity.toInt() }
         itemUiState.update { it.copy(totalWeight = totalWeight) }
     }
 

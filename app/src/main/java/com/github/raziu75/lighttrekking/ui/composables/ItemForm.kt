@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -21,8 +22,8 @@ fun ItemForm(vm: ItemViewModel = viewModel()) {
     val screen2 = screenWidth / 2
     val screen7 = screenWidth / 7
     val itemState = vm.uiState.collectAsState()
-    var expanded by remember { mutableStateOf(false) }
-    var selectedUnit by remember { mutableStateOf(0) }
+    var expanded by rememberSaveable { mutableStateOf(false) }
+    var selectedUnit by rememberSaveable { mutableStateOf(0) }
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Row(
@@ -55,9 +56,9 @@ fun ItemForm(vm: ItemViewModel = viewModel()) {
             Text(text = "Poid: ")
             TextField(
                 modifier = Modifier.width(screen4.dp),
-                value = itemState.value.weight.toString(),
-                onValueChange = { newValue -> vm.onWeightInputChange(newValue.toDouble()) },
-                placeholder = { Text(text = "Poid") }
+                value = itemState.value.weight,
+                onValueChange = { newValue -> vm.onWeightInputChange(newValue) },
+                placeholder = { Text(text = "0.0") }
             )
             Box(
                 modifier = Modifier
@@ -104,9 +105,9 @@ fun ItemForm(vm: ItemViewModel = viewModel()) {
             Text(text = "Quantité: ")
             TextField(
                 modifier = Modifier.width(screen7.dp),
-                value = itemState.value.quantity.toString(),
-                onValueChange = { newValue -> vm.onQuantityInputChange(newValue.toInt()) },
-                placeholder = { Text(text = "Quantité") }
+                value = itemState.value.quantity,
+                onValueChange = { newValue -> vm.onQuantityInputChange(newValue) },
+                placeholder = { Text(text = "0") }
             )
         }
         Button(onClick = {

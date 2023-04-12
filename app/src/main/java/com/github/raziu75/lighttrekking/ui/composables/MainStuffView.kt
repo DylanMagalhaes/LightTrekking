@@ -19,9 +19,6 @@ fun MainStuffView(navController: NavController) {
         modifier = Modifier
             .padding(8.dp)
     ) {
-        Button(onClick = { navController.popBackStack() }) {
-            Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
-        }
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
