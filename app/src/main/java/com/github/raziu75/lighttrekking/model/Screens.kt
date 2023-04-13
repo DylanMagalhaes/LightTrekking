@@ -6,5 +6,6 @@ enum class Screens(val title: String) {
     CLOTHE(title = "Vetement"),
     FOOD(title = "Nourriture"),
     ACCESSORY(title = "Accessoire"),
-    OTHER(title = "Autre")
+    OTHER(title = "Autre"),
+    LISTITEMS(title = "Liste Complète")
 }

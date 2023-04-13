@@ -59,7 +59,7 @@ fun MainStuffView(navController: NavController, vm: ItemViewModel) {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = { navController.navigate(Screens.LISTITEMS.name) }) {
                 Text(text = "Afficher la Liste complete")
             }
         }
