@@ -34,7 +34,7 @@ fun AppBar(
                 }
             } else {
                 Image(
-                    painter = painterResource(id = R.drawable.logo),
+                    painter = painterResource(id = R.drawable.logo2),
                     contentDescription = null,
                     modifier = Modifier
                         .padding(8.dp)

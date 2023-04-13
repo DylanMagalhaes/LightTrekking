@@ -6,29 +6,37 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.github.raziu75.lighttrekking.model.CategoryItem
+import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ClothesItemCard(onClick: () -> Unit) {
+fun ClothesItemCard(onClick: () -> Unit, vm: ItemViewModel) {
+    val itemState = vm.uiState.collectAsState()
     Card(
         modifier = Modifier
             .height(150.dp)
             .width(150.dp),
         elevation = 20.dp,
         shape = MaterialTheme.shapes.medium,
-        backgroundColor = MaterialTheme.colors.primary,
-        onClick = {onClick()}
+        backgroundColor = MaterialTheme.colors.primaryVariant,
+        onClick = { onClick() }
     ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxSize()
-        ) {
-            Text(text = "Vetements")
-            Text(text = "kilos")
+        Box(modifier = Modifier.fillMaxSize()) {
+            // Pour le texte "Vêtements" au milieu de la carte
+            Text(
+                text = "Vêtements",
+                modifier = Modifier.align(Alignment.Center)
+            )
+            // Pour afficher le poids total en bas de la carte
+            Text(
+                text = "Poids total: ${itemState.value.categoryTotalWeight[CategoryItem.CLOTHE] ?: 0.0} kg",
+                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
+            )
         }
     }
 }

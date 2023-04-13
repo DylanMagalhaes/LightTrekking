@@ -1,18 +1,19 @@
 package com.github.raziu75.lighttrekking.ui.composables
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Card
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.github.raziu75.lighttrekking.model.CategoryItem
+import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun OtherItemCard(onClick: () -> Unit) {
+fun OtherItemCard(onClick: () -> Unit, vm: ItemViewModel) {
+    val itemState = vm.uiState.collectAsState()
     Card(
         modifier = Modifier
             .height(150.dp)
@@ -20,15 +21,19 @@ fun OtherItemCard(onClick: () -> Unit) {
         elevation = 20.dp,
         shape = MaterialTheme.shapes.medium,
         backgroundColor = MaterialTheme.colors.secondaryVariant,
-        onClick = {onClick()}
+        onClick = { onClick() }
     ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxSize()
-        ) {
-            Text(text = "Autres")
-            Text(text = "kilos")
+        Box(modifier = Modifier.fillMaxSize()) {
+            // Pour le texte "Vêtements" au milieu de la carte
+            Text(
+                text = "Autre",
+                modifier = Modifier.align(Alignment.Center)
+            )
+            // Pour afficher le poids total en bas de la carte
+            Text(
+                text = "Poids total: ${itemState.value.categoryTotalWeight[CategoryItem.OTHER] ?: 0.0} kg",
+                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)
+            )
         }
     }
 }

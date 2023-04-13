@@ -37,7 +37,7 @@ fun Home(vm: ItemViewModel = viewModel()) {
                     BodyStuff(modifier = Modifier, navController = navController)
                 }
                 composable(Screens.HOMESTUFF.name){
-                    MainStuffView(navController = navController)
+                    MainStuffView(navController = navController, vm = vm)
                 }
                 composable(Screens.CLOTHE.name){
                     ClothesItemDetails(vm = vm, navController = navController)

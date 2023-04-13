@@ -13,12 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.github.raziu75.lighttrekking.model.CategoryItem
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @Composable
 fun ItemForm(
     vm: ItemViewModel = viewModel(),
-    category: String
+    category: CategoryItem
 ) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
     val screen4 = screenWidth / 4

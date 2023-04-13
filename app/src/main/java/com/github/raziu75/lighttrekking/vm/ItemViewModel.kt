@@ -1,6 +1,7 @@
 package com.github.raziu75.lighttrekking.vm
 
 import androidx.lifecycle.ViewModel
+import com.github.raziu75.lighttrekking.model.CategoryItem
 import com.github.raziu75.lighttrekking.model.Item
 import com.github.raziu75.lighttrekking.model.Stuff
 import com.github.raziu75.lighttrekking.ui.uiState.ItemState
@@ -29,7 +30,7 @@ class ItemViewModel : ViewModel() {
         itemUiState.update { it.copy(quantity = value) }
     }
 
-    fun onAddItemClick(category: String) {
+    fun onAddItemClick(category: CategoryItem) {
         if (itemUiState.value.itemName != "" && itemUiState.value.quantity != "" && itemUiState.value.weight != "") {
             val newStuff = Item(
                 itemName = itemUiState.value.itemName,

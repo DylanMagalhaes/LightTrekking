@@ -1,5 +1,6 @@
 package com.github.raziu75.lighttrekking.ui.uiState
 
+import com.github.raziu75.lighttrekking.model.CategoryItem
 import com.github.raziu75.lighttrekking.model.Item
 
 data class ItemState(
@@ -11,6 +12,6 @@ data class ItemState(
     val unitWeight: List<String> = listOf("kg", "g"),
     val itemList: List<Item> = listOf(),
     var totalWeight: Double = 0.0,
-    val categoryName: String = "",
-    val categoryTotalWeight: Map<String, Double> = emptyMap()
+    val categoryName: CategoryItem = CategoryItem.CLOTHE,
+    val categoryTotalWeight: Map<CategoryItem, Double> = emptyMap()
 )

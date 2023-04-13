@@ -12,13 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.github.raziu75.lighttrekking.model.CategoryItem
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 
 @Composable
 fun ClothesItemDetails(vm: ItemViewModel, navController: NavController) {
     val itemState = vm.uiState.collectAsState()
-    val selectedCategory = "clothes"
+    val selectedCategory = CategoryItem.CLOTHE
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
