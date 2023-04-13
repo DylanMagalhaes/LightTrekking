@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.github.raziu75.lighttrekking.model.CategoryItem
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
@@ -23,16 +24,16 @@ fun AccessoriesItemCard(onClick: () -> Unit, vm: ItemViewModel) {
             .width(150.dp),
         elevation = 20.dp,
         shape = MaterialTheme.shapes.medium,
-        backgroundColor = MaterialTheme.colors.primary,
+        backgroundColor = Color(0xFFBB86FC),
         onClick = { onClick() }
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            // Pour le texte "Vêtements" au milieu de la carte
+
             Text(
                 text = "Accessoire",
                 modifier = Modifier.align(Alignment.Center)
             )
-            // Pour afficher le poids total en bas de la carte
+
             Text(
                 text = "Poids total: ${itemState.value.categoryTotalWeight[CategoryItem.ACCESSORY] ?: 0.0} kg",
                 modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 8.dp)

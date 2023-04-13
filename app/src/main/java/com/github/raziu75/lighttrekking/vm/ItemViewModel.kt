@@ -54,13 +54,11 @@ class ItemViewModel : ViewModel() {
         getTotalWeight()
     }
 
-    fun getTotalWeight() {
+    private fun getTotalWeight() {
         val totalWeight = itemUiState.value.itemList.sumOf { it.weight.toDouble() * it.quantity.toInt() }
 
         val categoryTotalWeight = itemUiState.value.itemList.groupBy { it.categoryName }
             .mapValues { (_, items) -> items.sumOf { it.weight.toDouble() * it.quantity.toInt() } }
         itemUiState.update { it.copy(totalWeight = totalWeight, categoryTotalWeight = categoryTotalWeight) }
     }
-
-
 }

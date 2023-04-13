@@ -34,7 +34,6 @@ fun ItemForm(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(4.dp),
-            // horizontalArrangement = Arrangement.SpaceBetween
         ) {
             TextField(
                 modifier = Modifier.width(screen2.dp),
@@ -122,7 +121,6 @@ fun ItemForm(
         }
     }
 }
-
 
 
 

@@ -13,7 +13,7 @@ import com.github.raziu75.lighttrekking.model.CategoryItem
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @Composable
-fun ListItemView(
+fun ListItemFilteredView(
     vm: ItemViewModel = viewModel(),
     selectedCategory: CategoryItem
 ) {

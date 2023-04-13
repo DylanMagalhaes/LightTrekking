@@ -31,6 +31,6 @@ fun ClothesItemDetails(vm: ItemViewModel, navController: NavController) {
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(10.dp))
-        ListItemView(vm, selectedCategory)
+        ListItemFilteredView(vm, selectedCategory)
     }
 }

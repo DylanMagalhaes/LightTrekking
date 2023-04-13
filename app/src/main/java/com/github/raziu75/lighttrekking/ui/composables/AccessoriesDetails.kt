@@ -30,6 +30,6 @@ fun AccessoriesDetails(vm: ItemViewModel, navController: NavController) {
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(10.dp))
-        ListItemView(vm, selectedCategory = selectedCategory)
+        ListItemFilteredView(vm, selectedCategory = selectedCategory)
     }
 }
