@@ -8,6 +8,7 @@ import com.github.raziu75.lighttrekking.ui.uiState.ItemState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlin.math.round
 
 class ItemViewModel : ViewModel() {
 
@@ -44,7 +45,6 @@ class ItemViewModel : ViewModel() {
         getTotalWeight()
     }
 
-
     fun onDeleteItemClick(item: Item) {
         itemUiState.update { currentState ->
             val updatedList = currentState.itemList.toMutableList()
@@ -59,6 +59,10 @@ class ItemViewModel : ViewModel() {
 
         val categoryTotalWeight = itemUiState.value.itemList.groupBy { it.categoryName }
             .mapValues { (_, items) -> items.sumOf { it.weight.toDouble() * it.quantity.toInt() } }
-        itemUiState.update { it.copy(totalWeight = totalWeight, categoryTotalWeight = categoryTotalWeight) }
+
+        val roundedTotalWeight = round(totalWeight * 100) / 100
+        val roundedCategoryTotalWeight = categoryTotalWeight.mapValues { (_, value) -> round(value * 100) / 100 }
+
+        itemUiState.update { it.copy(totalWeight = roundedTotalWeight, categoryTotalWeight = roundedCategoryTotalWeight) }
     }
 }
