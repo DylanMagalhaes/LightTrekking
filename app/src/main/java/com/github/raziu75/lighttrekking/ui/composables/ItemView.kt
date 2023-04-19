@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.github.raziu75.lighttrekking.model.Item
 import com.github.raziu75.lighttrekking.ui.uiState.ItemState
+import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -38,11 +39,11 @@ fun ItemView(
             )
             Text(
                 modifier = Modifier.padding(8.dp,0.dp,0.dp,0.dp),
-                text = "${ item.weight.toString() } Kg"
+                text = "${item.weight} ${item.selectedUnit}"
             )
             Text(
                 modifier = Modifier.padding(8.dp,0.dp,0.dp,0.dp),
-                text = "X ${item.quantity.toString()}"
+                text = "X ${item.quantity}"
             )
             Spacer(modifier = Modifier.weight(1.0F))
             IconButton(onClick = { onDelete()  }) {

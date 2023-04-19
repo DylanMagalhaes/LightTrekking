@@ -13,5 +13,6 @@ data class ItemState(
     val itemList: List<Item> = listOf(),
     var totalWeight: Double = 0.0,
     val categoryName: CategoryItem = CategoryItem.CLOTHE,
-    val categoryTotalWeight: Map<CategoryItem, Double> = emptyMap()
+    val categoryTotalWeight: Map<CategoryItem, Double> = emptyMap(),
+    val selectedUnit: Int = 0,
 )

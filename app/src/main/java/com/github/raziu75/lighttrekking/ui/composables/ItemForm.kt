@@ -113,6 +113,7 @@ fun ItemForm(
                 placeholder = { Text(text = "0") }
             )
         }
+        vm.updateSelectedUnit(selectedUnit)
         Button(onClick = {
             vm.onAddItemClick(category = category)
         }) {
