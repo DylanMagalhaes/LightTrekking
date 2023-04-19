@@ -56,7 +56,7 @@ fun ItemForm(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(text = "Poid: ")
+            Text(text = "Poids: ")
             TextField(
                 modifier = Modifier.width(screen4.dp),
                 value = itemState.value.weight,
@@ -66,7 +66,6 @@ fun ItemForm(
             Box(
                 modifier = Modifier
                     .height(25.dp)
-                    //.background(Color.LightGray)
                     .clickable(onClick = { expanded = !expanded })
             ) {
                 Row() {
@@ -118,7 +117,7 @@ fun ItemForm(
             vm.onAddItemClick(category = category)
         }) {
             Icon(imageVector = Icons.Default.Add, contentDescription = null)
-            Text(text = "Ajouter a la liste", Modifier.padding(start = 10.dp))
+            Text(text = "Ajouter à la liste", Modifier.padding(start = 10.dp))
         }
     }
 }

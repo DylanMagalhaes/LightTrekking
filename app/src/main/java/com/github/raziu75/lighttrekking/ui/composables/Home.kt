@@ -11,6 +11,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.github.raziu75.lighttrekking.model.Screens
+import com.github.raziu75.lighttrekking.ui.composables.details.AccessoriesDetails
+import com.github.raziu75.lighttrekking.ui.composables.details.ClothesItemDetails
+import com.github.raziu75.lighttrekking.ui.composables.details.FoodDetails
+import com.github.raziu75.lighttrekking.ui.composables.details.OtherDetails
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @Composable

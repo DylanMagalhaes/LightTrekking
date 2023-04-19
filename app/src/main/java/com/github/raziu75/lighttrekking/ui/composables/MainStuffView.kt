@@ -11,6 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.github.raziu75.lighttrekking.model.Screens
+import com.github.raziu75.lighttrekking.ui.composables.cards.AccessoriesItemCard
+import com.github.raziu75.lighttrekking.ui.composables.cards.ClothesItemCard
+import com.github.raziu75.lighttrekking.ui.composables.cards.FoodItemCard
+import com.github.raziu75.lighttrekking.ui.composables.cards.OtherItemCard
 import com.github.raziu75.lighttrekking.vm.ItemViewModel
 
 @SuppressLint("StateFlowValueCalledInComposition")

@@ -1,4 +1,4 @@
-package com.github.raziu75.lighttrekking.ui.composables
+package com.github.raziu75.lighttrekking.ui.composables.cards
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
